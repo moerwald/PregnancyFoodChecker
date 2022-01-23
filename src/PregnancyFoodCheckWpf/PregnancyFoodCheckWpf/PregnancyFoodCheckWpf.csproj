@@ -8,8 +8,21 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Helper\" />
+    <None Remove="eighth-feat-339019-firebase.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="eighth-feat-339019-firebase.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="Views\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Google.Cloud.Firestore" Version="2.5.0" />
   </ItemGroup>
 
 </Project>

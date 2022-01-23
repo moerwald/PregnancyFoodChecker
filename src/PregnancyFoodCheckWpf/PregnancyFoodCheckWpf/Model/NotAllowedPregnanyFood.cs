@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace PregnancyFoodCheckWpf.Model
 {
-    public class NotAllowedPregnanyFood : INotifyPropertyChanged
+    public class NotAllowedPregnanyFood 
     {
 
         private string _foodName;

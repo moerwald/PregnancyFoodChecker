@@ -4,40 +4,47 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PregnancyFoodCheckWpf"
+        xmlns:vm ="clr-namespace:PregnancyFoodCheckWpf.ViewModel"
         mc:Ignorable="d"
         Title="MainWindow" Height="600" Width="800">
+
+    <Window.Resources>
+        <vm:SearchFoodViewModel x:Key="searchVm"/>
+        <vm:AddNewNotAllowedFoodViewModel x:Key="addVm"/>
+    </Window.Resources>
     <Grid>
         <DockPanel>
             <GroupBox  BorderThickness="1" DockPanel.Dock="Right" BorderBrush="Black" Margin="10">
                 <GroupBox.Header>Neues Lebensmittel</GroupBox.Header>
-                <StackPanel Margin="10" Width="150">
-                    <TextBlock >Name</TextBlock>
-                    <TextBox>Tymian</TextBox>
+                <StackPanel Margin="10" Width="150" DataContext="{StaticResource addVm}">
+                    <TextBlock>Name</TextBlock>
+                    <TextBox Text="{Binding Name}"/> 
                     <TextBlock >von SSW</TextBlock>
                     <TextBox>15</TextBox>
                     <TextBlock >bis SSW</TextBlock>
                     <TextBox>20</TextBox>
                     <TextBlock >Menge</TextBlock>
                     <TextBox>halber Bund</TextBox>
-                    <Button>Hinzufügen</Button>
+                    <Button Command="{Binding AddNewFood}">Hinzufügen</Button>
                 </StackPanel>
             </GroupBox>
 
-            <GroupBox  BorderThickness="1" DockPanel.Dock="Right" BorderBrush="Black" Margin="10">
+            <GroupBox BorderThickness="1" DockPanel.Dock="Right" BorderBrush="Black" Margin="10">
                 <GroupBox.Header>Suche</GroupBox.Header>
-                <StackPanel Margin="5" >
+                <StackPanel Margin="5" 
+                            DataContext="{StaticResource searchVm}">
                     <TextBlock>Schwangerschaftswoche:</TextBlock>
                     <TextBox Margin="5">13</TextBox>
 
                     <TextBlock>Lebensmittel:</TextBlock>
-                    <TextBox Margin="5">Gurke, Salat</TextBox>
+                    <TextBox Margin="5" Text="{Binding FoodToSearch}"/>
 
-                    <Button Margin="5">Suche</Button>
+                    <Button Margin="5" Command="{Binding SearchFoodCommand}">Suche</Button>
                     <ListView Margin="5" 
-                          Height="400">
+                          Height="400" ItemsSource="{Binding NotAllowedPregnancyFood}">
                         <ListView.ItemTemplate>
                             <DataTemplate>
-
+                                <TextBlock Text="{Binding FoodName}"/>
                             </DataTemplate>
                         </ListView.ItemTemplate>
                     </ListView>
