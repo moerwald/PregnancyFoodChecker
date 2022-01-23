@@ -47,6 +47,17 @@ namespace PregnancyFoodCheckWpf.Model
             }
         }
 
+        private string _urlToFurtherInformation;
+        public string UrlToFurtherInformation
+        {
+            get { return _urlToFurtherInformation; }
+            set { 
+                _urlToFurtherInformation = value;
+            }
+        }
+
+
+
 
 
 

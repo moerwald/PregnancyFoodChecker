@@ -1,4 +1,7 @@
-﻿using Google.Cloud.Firestore;
+﻿using Firebase.Auth;
+using Google.Cloud.Firestore;
+using Google.Cloud.Firestore.V1;
+using Grpc.Core;
 using PregnancyFoodCheckWpf.Model;
 using System;
 using System.Collections.Generic;
@@ -27,6 +30,13 @@ namespace PregnancyFoodCheckWpf.Helper
             {
                 { nameof(NotAllowedPregnanyFood.FoodName), foodName }
             });
+        }
+
+        public static async Task AddNotAllowedFoodAsync(NotAllowedPregnanyFood food)
+        {
+            var db = FirestoreDb.Create(FireStoreName);
+            var collection = db.Collection(PregnancyFoodCollection);
+            await collection.Document(food.FoodName).SetAsync(food.ToDictionary());
         }
 
         public static async Task<IEnumerable<NotAllowedPregnanyFood>> FindFoodAsync(string foodName)

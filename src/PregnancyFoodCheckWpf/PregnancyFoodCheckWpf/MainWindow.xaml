@@ -20,11 +20,13 @@
                     <TextBlock>Name</TextBlock>
                     <TextBox Text="{Binding Name}"/> 
                     <TextBlock >von SSW</TextBlock>
-                    <TextBox>15</TextBox>
+                    <TextBox Text="{Binding PregWeekStart}"/> 
                     <TextBlock >bis SSW</TextBlock>
-                    <TextBox>20</TextBox>
+                    <TextBox Text="{Binding PregWeekEnd}"/> 
                     <TextBlock >Menge</TextBlock>
-                    <TextBox>halber Bund</TextBox>
+                    <TextBox Text="{Binding Amount}"/> 
+                    <TextBlock >Link zu weiteren Infos</TextBlock>
+                    <TextBox Text="{Binding UrlToFurtherInformation}"/> 
                     <Button Command="{Binding AddNewFood}">Hinzufügen</Button>
                 </StackPanel>
             </GroupBox>
