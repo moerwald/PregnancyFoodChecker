@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.32014.148
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PregnancyFoodCheckWpf", "PregnancyFoodCheckWpf\PregnancyFoodCheckWpf.csproj", "{54CA89EB-7F04-4A96-9DC1-C12F888E6E61}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{54CA89EB-7F04-4A96-9DC1-C12F888E6E61}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{54CA89EB-7F04-4A96-9DC1-C12F888E6E61}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{54CA89EB-7F04-4A96-9DC1-C12F888E6E61}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{54CA89EB-7F04-4A96-9DC1-C12F888E6E61}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8FEB5F2C-B50E-40E3-ABE3-CF61E0786380}
+	EndGlobalSection
+EndGlobal
