@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 
 namespace PregnancyFoodCheckWpf.ViewModel
 {
@@ -53,15 +54,18 @@ namespace PregnancyFoodCheckWpf.ViewModel
             set { _pregWeekEnd = value; }
         }
 
-        public AddNewNotAllowedFoodCommand AddNewFood { get; init; }
+        public ICommand AddNewFood { get; init; }
 
-        public Task AddNewNotAllowedAsync() => FireStoreHelper.AddNotAllowedFoodAsync(new NotAllowedPregnanyFood()
+        public Task AddNewNotAllowedAsync()
         {
-            FoodName = Name,
-            Amount = Amount,
-            PregWeekStart = PregWeekStart,
-            PregWeekEnd = PregWeekEnd,
-            UrlToFurtherInformation = UrlToFurtherInformation
-        });
+            return FireStoreHelper.AddNotAllowedFoodAsync(new NotAllowedPregnanyFood()
+            {
+                FoodName = Name,
+                Amount = Amount,
+                PregWeekStart = PregWeekStart,
+                PregWeekEnd = PregWeekEnd,
+                UrlToFurtherInformation = UrlToFurtherInformation
+            });
+        }
     }
 }
