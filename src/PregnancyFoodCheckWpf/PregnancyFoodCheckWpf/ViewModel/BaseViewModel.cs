@@ -7,7 +7,7 @@ namespace PregnancyFoodCheckWpf.ViewModel
 
         public event PropertyChangedEventHandler? PropertyChanged;
 
-        private void OnPropertyChagend([System.Runtime.CompilerServices.CallerMemberName] string name = null)
+        public void OnPropertyChagend([System.Runtime.CompilerServices.CallerMemberName] string name = null)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
         }

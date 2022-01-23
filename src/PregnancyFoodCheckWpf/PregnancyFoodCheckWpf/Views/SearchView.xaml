@@ -1,0 +1,32 @@
+﻿<UserControl x:Class="PregnancyFoodCheckWpf.Views.SearchView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:PregnancyFoodCheckWpf.Views"
+             xmlns:vm="clr-namespace:PregnancyFoodCheckWpf.ViewModel"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+        <vm:SearchFoodViewModel x:Key="searchVm"/>
+    </UserControl.Resources>
+    <Grid>
+        <StackPanel Margin="5" DataContext="{StaticResource searchVm}">
+                    <TextBlock>Schwangerschaftswoche:</TextBlock>
+                    <TextBox Margin="5">13</TextBox>
+
+                    <TextBlock>Lebensmittel:</TextBlock>
+                    <TextBox Margin="5" Text="{Binding FoodToSearch}"/>
+
+                    <Button Margin="5" Command="{Binding SearchFoodCommand}">Suche</Button>
+                    <ListView Margin="5" 
+                          Height="400" ItemsSource="{Binding NotAllowedPregnancyFood}">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding FoodName}"/>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </StackPanel>
+    </Grid>
+</UserControl>
