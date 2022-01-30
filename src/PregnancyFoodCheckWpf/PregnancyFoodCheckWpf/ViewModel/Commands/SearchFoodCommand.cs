@@ -12,7 +12,7 @@ namespace PregnancyFoodCheckWpf.ViewModel.Commands
 
         public SearchFoodCommand(SearchFoodViewModel searchFoodViewModel) => _searchFoodViewModel = searchFoodViewModel;
 
-        public override bool CanExecute(object? parameter) => true;
+        public override bool CanExecute(object? parameter) => !string.IsNullOrEmpty(_searchFoodViewModel.FoodToSearch);
 
         public override void Execute(object? parameter) => _searchFoodViewModel.FindNotAllowedFoodAsync();
     }

@@ -1,5 +1,4 @@
-﻿using PregnancyFoodCheckWpf.Helper;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,19 +13,16 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace PregnancyFoodCheckWpf
+namespace PregnancyFoodCheckWpf.Views
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for CalculatePregnancyWeek.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class CalculatePregnancyWeek : UserControl
     {
-        public MainWindow()
+        public CalculatePregnancyWeek()
         {
             InitializeComponent();
-            FireStoreHelper.Init();
         }
-
-        private void EndApp(object sender, RoutedEventArgs e) => Application.Current.Shutdown();
     }
 }

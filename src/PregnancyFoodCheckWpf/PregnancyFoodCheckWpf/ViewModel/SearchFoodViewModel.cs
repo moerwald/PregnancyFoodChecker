@@ -7,6 +7,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace PregnancyFoodCheckWpf.ViewModel
 {
@@ -22,6 +23,17 @@ namespace PregnancyFoodCheckWpf.ViewModel
             set { _foodToSearch = value; }
         }
 
+        private Visibility _progressBarVisible = Visibility.Collapsed;
+
+        public Visibility ProgressBarVisible
+        {
+            get => _progressBarVisible;
+            set
+            {
+                _progressBarVisible = value;
+                OnPropertyChagend();
+            }
+        }
 
         public SearchFoodViewModel()
         {
@@ -33,11 +45,20 @@ namespace PregnancyFoodCheckWpf.ViewModel
 
         internal async Task FindNotAllowedFoodAsync()
         {
-            NotAllowedPregnancyFood.Clear();
-            var foundFoods =  await FireStoreHelper.FindFoodAsync(FoodToSearch);
-            foreach (var food in foundFoods)
+            try
             {
-                NotAllowedPregnancyFood.Add(food);
+                ProgressBarVisible = Visibility.Visible;
+                NotAllowedPregnancyFood.Clear();
+                var foundFoods = await FireStoreHelper.FindFoodAsync(FoodToSearch);
+                foreach (var food in foundFoods)
+                {
+                    NotAllowedPregnancyFood.Add(food);
+                }
+
+            }
+            finally
+            {
+                ProgressBarVisible = Visibility.Collapsed;
             }
         }
     }

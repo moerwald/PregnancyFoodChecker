@@ -17,6 +17,7 @@ namespace PregnancyFoodCheckWpf.ViewModel
 
         public ICommand ShowSearchViewCommand { get; init; }
         public ICommand ShowAddFoodViewCommand { get; init; }
+        public ICommand ShowPregenancyWeekCalculatorCommand { get; }
 
         public CurrentViewModel()
         {
@@ -24,6 +25,8 @@ namespace PregnancyFoodCheckWpf.ViewModel
 
             ShowSearchViewCommand = new ChangeViewCommand<SearchFoodViewModel>(_navigationStore,() => new SearchFoodViewModel());
             ShowAddFoodViewCommand = new ChangeViewCommand<AddNewNotAllowedFoodViewModel>(_navigationStore, () => new AddNewNotAllowedFoodViewModel());
+
+            ShowPregenancyWeekCalculatorCommand = new ChangeViewCommand<CalculatePregnancyWeekViewModel>(_navigationStore, () => new CalculatePregnancyWeekViewModel());
         }
     }
 
